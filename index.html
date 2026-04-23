@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예적금 이자 계산기 — 단리·복리 만기 수령액 계산 | JWAY</title>
+<meta name="description" content="예적금 이자 계산기 무료 온라인 도구. 예금·적금의 단리·복리 만기 수령액과 세후 이자를 정확하게 계산합니다. 15.4% 이자과세 반영.">
+<meta name="keywords" content="예금 계산기, 적금 계산기, 이자 계산기, 단리 복리, 만기 수령액, 이자 과세, 세후 이자">
+<meta property="og:title" content="예적금 이자 계산기 — 단리·복리·세후 | JWAY">
+<meta property="og:description" content="예금·적금 만기 수령액과 세후 이자 계산. 단리·복리 선택 지원.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://jwaytools.com/savings-calculator/og-image.png">
+<link rel="canonical" href="https://jwaytools.com/savings-calculator/">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7FEE7;--surface:#FFF;--surface-alt:#ECFCCB;--text-primary:#1A2E05;--text-secondary:#3F6212;--text-tertiary:#84CC16;--accent:#65A30D;--accent-light:#ECFCCB;--accent-hover:#4D7C0F;--border:#D9F99D;--shadow-md:0 4px 16px rgba(0,0,0,.06);--radius:14px;--radius-sm:10px}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text-primary);min-height:100vh;line-height:1.7;-webkit-font-smoothing:antialiased}
+.nav{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;position:sticky;top:0;z-index:100}.nav-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}.nav-logo{font-size:18px;font-weight:700;color:var(--text-primary);text-decoration:none}.nav-logo span{color:var(--accent)}.nav-links{display:flex;gap:14px;flex-wrap:wrap}.nav-links a{font-size:13px;color:var(--text-secondary);text-decoration:none;font-weight:500}.nav-links a:hover{color:var(--accent)}
+.header{text-align:center;padding:48px 20px 0}.header h1{font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:-1.5px}.header h1 em{color:var(--accent);font-style:normal}.header p{font-size:15px;color:var(--text-secondary);max-width:480px;margin:8px auto 0}
+.container{max-width:760px;margin:32px auto;padding:0 20px 20px}
+.tabs{display:flex;gap:8px;margin-bottom:20px}.tab-btn{flex:1;padding:14px 8px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all .25s;text-align:center}.tab-btn:hover{border-color:var(--accent);color:var(--accent)}.tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.calc-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:28px 24px}
+.field-group{margin-bottom:16px}.field-label{display:block;font-size:13px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.input-row{display:flex;align-items:center;gap:10px}
+input[type="number"]{flex:1;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--text-primary);outline:none;background:var(--surface);min-width:0;text-align:right}input[type="number"]:focus{border-color:var(--accent)}
+.input-unit{font-size:14px;color:var(--text-secondary);font-weight:500;white-space:nowrap}
+.radio-row{display:flex;gap:8px}
+.radio-btn{flex:1;padding:10px 0;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);font-size:14px;font-weight:500;color:var(--text-secondary);cursor:pointer;text-align:center;transition:all .2s}.radio-btn.active{background:var(--accent-light);border-color:var(--accent);color:var(--accent);font-weight:600}
+.quick-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.quick-btn{padding:6px 12px;border:1.5px solid var(--border);border-radius:8px;background:var(--surface-alt);font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--text-secondary);cursor:pointer;transition:all .2s}.quick-btn:hover{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.result-box{margin-top:24px;background:var(--accent-light);border:1.5px solid var(--accent);border-radius:var(--radius);padding:24px;text-align:center}
+.result-main{font-family:'JetBrains Mono',monospace;font-size:clamp(32px,5.5vw,44px);font-weight:700;color:var(--accent);line-height:1.15}
+.result-sub{margin-top:6px;font-size:14px;color:var(--text-secondary)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}@media(min-width:520px){.detail-grid{grid-template-columns:repeat(4,1fr)}}
+.detail-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;text-align:center}
+.detail-label{font-size:11px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.detail-value{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:600;color:var(--text-primary);word-break:break-all}
+.guide-section{margin-top:40px}.guide-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:32px 28px}.guide-card h2{font-size:20px;font-weight:700;margin:28px 0 12px}.guide-card h2:first-child{margin-top:0}.guide-card h3{font-size:16px;font-weight:700;margin:20px 0 8px}.guide-card p{font-size:14px;color:var(--text-secondary);line-height:1.9;margin-bottom:12px}.guide-card p:last-child{margin-bottom:0}
+.guide-tip{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0;font-size:14px;color:var(--text-secondary);line-height:1.8}.guide-tip strong{color:var(--text-primary)}
+.guide-table{width:100%;border-collapse:collapse;margin:16px 0}.guide-table th,.guide-table td{padding:10px 14px;font-size:14px;border-bottom:1px solid var(--surface-alt);text-align:left}.guide-table th{font-weight:600;background:var(--surface-alt)}.guide-table td{color:var(--text-secondary)}
+.faq-section{margin-top:32px}.section-title{font-size:20px;font-weight:700;letter-spacing:-.8px;margin-bottom:16px}.faq-item{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}.faq-q{padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q:hover{background:var(--surface-alt)}.faq-arrow{font-size:12px;color:var(--text-tertiary);transition:transform .3s}.faq-item.open .faq-arrow{transform:rotate(180deg)}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s}.faq-a-inner{padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.8}.faq-item.open .faq-a{max-height:600px}
+.other-tools{margin-top:40px}.other-grid{display:grid;grid-template-columns:1fr;gap:10px}@media(min-width:520px){.other-grid{grid-template-columns:1fr 1fr 1fr}}.other-card{display:flex;align-items:center;gap:14px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--text-primary);transition:all .2s}.other-card:hover{border-color:var(--accent);transform:translateY(-2px)}.other-icon{font-size:24px}.other-name{font-size:15px;font-weight:600;margin-bottom:2px}.other-desc{font-size:12px;color:var(--text-secondary)}
+.ad-banner{border:1.5px dashed var(--border);border-radius:var(--radius-sm);padding:10px;text-align:center;margin-top:32px}
+.footer{margin-top:48px;background:var(--surface);border-top:1px solid var(--border);padding:32px 20px 20px}.footer-inner{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}.footer-col{display:flex;flex-direction:column;gap:6px}.footer-col p{font-size:13px;color:var(--text-secondary);max-width:240px;line-height:1.6}.footer-col a{font-size:13px;color:var(--text-secondary);text-decoration:none}.footer-col a:hover{color:var(--accent)}.footer-logo{font-size:18px;font-weight:700;color:var(--text-primary);text-decoration:none;margin-bottom:6px}.footer-logo span{color:var(--accent)}.footer-bottom{max-width:760px;margin:16px auto 0;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--text-tertiary);text-align:center}
+@media(max-width:480px){.header{padding:32px 16px 0}.container{padding:0 12px 16px}.calc-card,.guide-card{padding:20px 16px}.nav-links a{font-size:12px}}
+.nav-toggle{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;padding:6px 10px;font-size:20px;cursor:pointer;color:var(--text-secondary);line-height:1}
+@media(max-width:640px){.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1.5px solid var(--border);padding:12px 20px;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);z-index:99}.nav-links.open{display:flex}.nav{position:relative}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5453815259196400" crossorigin="anonymous"></script>
+</head><body>
+<nav class="nav"><div class="nav-inner"><a href="https://jwaytools.com/" class="nav-logo">J<span>WAY</span></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="https://jwaytools.com/char-counter/">글자수</a><a href="https://jwaytools.com/date-calculator/">날짜</a><a href="https://jwaytools.com/percent-calculator/">퍼센트</a><a href="https://jwaytools.com/salary-calculator/">연봉</a><a href="https://jwaytools.com/bmi-calculator/">BMI</a><a href="https://jwaytools.com/exchange-rate/">환율</a><a href="https://jwaytools.com/unit-converter/">단위</a><a href="https://jwaytools.com/timer/">타이머</a><a href="https://jwaytools.com/qr-generator/">QR</a><a href="https://jwaytools.com/color-converter/">색상</a><a href="https://jwaytools.com/random-picker/">랜덤</a><a href="https://jwaytools.com/loan-calculator/">대출</a><a href="https://jwaytools.com/age-calculator/">만나이</a><a href="https://jwaytools.com/savings-calculator/">예적금</a><a href="https://jwaytools.com/income-tax-calculator/">소득세</a></div></div></nav>
+<header class="header"><h1>예적금 <em>계산기</em></h1><p>예금·적금의 단리·복리 만기 수령액과 세후 이자를 정확하게 계산합니다. 15.4% 이자과세 반영.</p></header>
+<main class="container">
+<div class="tabs">
+<button class="tab-btn active" onclick="switchType('deposit')">💰 예금</button>
+<button class="tab-btn" onclick="switchType('savings')">🏦 적금</button>
+</div>
+<div class="calc-card">
+<div class="field-group"><label class="field-label" id="amtLabel">예치 금액</label><div class="input-row"><input type="number" id="amount" value="10000000" step="100000"><span class="input-unit">원</span></div><div class="quick-row" id="amtQuick"></div></div>
+<div class="field-group"><label class="field-label">연 이자율 (%)</label><div class="input-row"><input type="number" id="rate" value="3.5" step="0.1"><span class="input-unit">%</span></div><div class="quick-row"><button class="quick-btn" onclick="setR(2.5)">2.5%</button><button class="quick-btn" onclick="setR(3.0)">3.0%</button><button class="quick-btn" onclick="setR(3.5)">3.5%</button><button class="quick-btn" onclick="setR(4.0)">4.0%</button><button class="quick-btn" onclick="setR(5.0)">5.0%</button></div></div>
+<div class="field-group"><label class="field-label">기간 (개월)</label><div class="input-row"><input type="number" id="months" value="12" min="1"><span class="input-unit">개월</span></div><div class="quick-row"><button class="quick-btn" onclick="setM(6)">6개월</button><button class="quick-btn" onclick="setM(12)">1년</button><button class="quick-btn" onclick="setM(24)">2년</button><button class="quick-btn" onclick="setM(36)">3년</button><button class="quick-btn" onclick="setM(60)">5년</button></div></div>
+<div class="field-group"><label class="field-label">이자 방식</label><div class="radio-row"><button class="radio-btn active" id="rSimple" onclick="setInterestType('simple')">단리</button><button class="radio-btn" id="rCompound" onclick="setInterestType('compound')">복리 (월복리)</button></div></div>
+<div class="field-group"><label class="field-label">과세 방식</label><div class="radio-row"><button class="radio-btn active" id="tNormal" onclick="setTax('normal')">일반과세 (15.4%)</button><button class="radio-btn" id="tNone" onclick="setTax('none')">비과세</button></div></div>
+<div class="result-box">
+<div class="result-main" id="finalAmount">-</div>
+<div class="result-sub" id="finalSub">만기 세후 수령액</div>
+</div>
+<div class="detail-grid">
+<div class="detail-card"><div class="detail-label">원금</div><div class="detail-value" id="principal">-</div></div>
+<div class="detail-card"><div class="detail-label">세전 이자</div><div class="detail-value" id="grossInterest">-</div></div>
+<div class="detail-card"><div class="detail-label">이자 소득세</div><div class="detail-value" id="tax">-</div></div>
+<div class="detail-card"><div class="detail-label">세후 이자</div><div class="detail-value" id="netInterest">-</div></div>
+</div>
+</div>
+
+<div class="guide-section"><div class="guide-card">
+<h2>예금과 적금의 차이</h2>
+<p>예금과 적금은 둘 다 은행에 돈을 맡기는 금융 상품이지만, 운영 방식이 다릅니다. 예금(정기예금)은 목돈을 한꺼번에 예치하고 일정 기간 후 원금과 이자를 받는 방식이며, 적금은 매월 일정 금액을 나눠서 납입하고 만기에 원금과 이자를 받는 방식입니다. 같은 이자율이라도 예금은 전체 원금에 대해 이자가 붙지만, 적금은 납입 차수마다 이자 계산 기간이 달라 실제 수령액 차이가 큽니다.</p>
+<p>예를 들어 1,200만원을 연 3.5% 12개월 예금으로 넣으면 세전 이자는 42만원이지만, 월 100만원씩 12개월 적금으로 넣으면 세전 이자는 약 22만원 수준입니다. 이는 적금은 첫 달 납입금은 12개월, 마지막 달 납입금은 1개월만 이자가 붙기 때문입니다.</p>
+
+<h2>단리 vs 복리 차이</h2>
+<h3>단리</h3>
+<p>원금에 대해서만 이자가 붙는 방식입니다. 대부분의 정기예금·적금이 단리로 운영됩니다. 예를 들어 1천만원 연 3.5% 단리로 2년 예치하면 이자는 70만원(1,000만원 × 3.5% × 2년)입니다. 단순하고 계산이 쉽습니다.</p>
+
+<h3>복리</h3>
+<p>이자에 다시 이자가 붙는 방식입니다. 같은 조건(1천만원, 3.5%, 2년)에서 월복리로 계산하면 약 72.3만원, 연복리로는 71.2만원의 이자를 받습니다. 장기간일수록 복리 효과가 극대화되어 "돈이 돈을 낳는" 효과를 얻을 수 있습니다. 아인슈타인이 "인류 최고의 발명"이라고 부른 것으로 유명합니다.</p>
+
+<div class="guide-tip"><strong>복리의 마법:</strong> 연 5% 수익률로 매년 복리 재투자하면 약 14.4년 후 원금이 2배가 됩니다 (72법칙: 72÷5 = 14.4). 1억원이 10년이면 약 1.63억, 20년이면 약 2.65억, 30년이면 약 4.32억이 됩니다. 시작이 빠를수록 유리합니다.</div>
+
+<h2>이자 과세 (15.4%)</h2>
+<p>예적금 이자에는 세금이 부과됩니다. 일반적인 이자소득세는 14% + 지방소득세 1.4% = 총 15.4%입니다. 세전 이자가 100만원이라면 15만 4천원이 세금으로 공제되고 실제 84만 6천원을 받게 됩니다. 이 15.4%는 이자소득 전체에 일괄 적용되며, 연 2천만원 이하 이자소득은 분리과세로 끝납니다.</p>
+<p>이자소득이 연 2,000만원을 초과하면 "금융소득종합과세" 대상이 되어 다른 소득과 합산해 누진세율(6~45%)이 적용됩니다. 고액 자산가의 경우 비과세 상품이나 ISA(개인종합자산관리계좌) 활용이 절세에 유리합니다.</p>
+
+<h2>비과세 상품</h2>
+<p>만 65세 이상 비과세 종합저축, ISA 계좌, 청년도약계좌, 청년형 소득공제 장기펀드 등은 일정 조건에서 이자소득세가 면제되거나 감면됩니다. 이 계산기에서 "비과세"를 선택하면 세금 공제 없이 세전 이자를 그대로 수령하는 상황을 시뮬레이션할 수 있습니다.</p>
+
+<h2>이 도구의 주요 기능</h2>
+<p>예금/적금 두 가지 모드를 탭으로 전환할 수 있으며, 원금(또는 월 납입금), 연 이자율, 기간을 입력하면 만기 수령액과 세후 이자를 즉시 계산합니다. 단리와 복리(월복리) 중 선택 가능하고, 일반과세(15.4%)와 비과세를 선택할 수 있어 다양한 시나리오를 시뮬레이션할 수 있습니다. 원금·세전 이자·세금·세후 이자가 각각 상세하게 표시되어 실제 수령액을 정확히 파악할 수 있습니다. 모든 계산은 브라우저에서 이루어지며 개인정보를 수집하지 않습니다.</p>
+</div></div>
+
+<div class="faq-section"><h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>예금과 적금 중 어떤 것이 이자가 더 많나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">같은 이자율·기간이라면 예금이 훨씬 많습니다. 예금은 전체 금액이 처음부터 이자를 받지만, 적금은 매월 납입되는 돈만 그 기간만큼 이자를 받기 때문입니다. 적금의 실제 연환산 이자율은 표시 이자율의 약 50~60% 수준입니다. 목돈이 있다면 예금, 매월 저축 습관을 들이려면 적금이 유리합니다.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>복리 예적금은 어디서 찾을 수 있나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">일반 시중은행의 정기예금·적금은 대부분 단리로 운영됩니다. 복리 상품은 주로 저축은행, 새마을금고, 신협 등에서 제공되며 "월복리 정기예금" 형태로 판매됩니다. 연금저축, ISA 계좌, 주가연계증권(ELS)도 복리 효과를 얻을 수 있는 방법입니다.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>이자소득이 2천만원 넘으면 어떻게 되나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">연간 이자·배당 등 금융소득 합계가 2,000만원을 초과하면 금융소득종합과세 대상이 되어 근로소득·사업소득 등과 합산해 누진세율(6~45%)이 적용됩니다. 고소득자일수록 세율이 높아지므로, 이자 2천만원 근처에서 분산 투자나 비과세 상품 활용이 필요합니다.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>중도해지하면 이자가 얼마나 깎이나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">중도해지 시 약정 이자율의 30~50% 수준인 "중도해지 이율"이 적용됩니다. 예를 들어 연 3.5% 1년 정기예금을 6개월 만에 해지하면 약 1.0~1.5%의 이자만 받게 됩니다. 긴급자금이 필요할 수 있는 경우 예금담보대출을 활용하거나 일부 해지(분할 해지) 가능 상품을 선택하세요.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>예금자보호는 어디까지 되나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">예금보험공사의 예금자 보호 한도는 금융기관별로 1인당 원리금 합산 5천만원입니다. 은행별로 각각 5천만원씩 보호되므로 고액 자산은 여러 은행에 분산하면 보호받을 수 있습니다. 저축은행, 새마을금고도 별도 예금보호 제도가 있으며 동일하게 5천만원 한도입니다.</div></div></div>
+</div>
+
+<section class="other-tools"><h2 class="section-title">다른 무료 도구</h2><div class="other-grid">
+<a href="https://jwaytools.com/loan-calculator/" class="other-card"><span class="other-icon">🏠</span><div><div class="other-name">대출 이자 계산기</div><div class="other-desc">원리금균등·원금균등·만기일시</div></div></a>
+<a href="https://jwaytools.com/salary-calculator/" class="other-card"><span class="other-icon">💰</span><div><div class="other-name">연봉 실수령액</div><div class="other-desc">2025년 4대보험 반영 세후 월급</div></div></a>
+<a href="https://jwaytools.com/percent-calculator/" class="other-card"><span class="other-icon">🔢</span><div><div class="other-name">퍼센트 계산기</div><div class="other-desc">할인율, 증감률, 비율 계산</div></div></a>
+</div></section>
+
+<div class="ad-banner"><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-dY7YmaHnk31ijIwa" data-ad-width="300" data-ad-height="250"></ins><script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script></div>
+</main>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-col"><a href="https://jwaytools.com/" class="footer-logo">J<span>WAY</span></a><p>매일 필요한 실용 도구를 무료로 제공합니다. 모든 계산은 브라우저에서 처리되며 개인정보를 수집하지 않습니다.</p></div><div class="footer-col"><a href="https://jwaytools.com/char-counter/">글자수 세기</a><a href="https://jwaytools.com/date-calculator/">날짜 계산기</a><a href="https://jwaytools.com/percent-calculator/">퍼센트 계산기</a><a href="https://jwaytools.com/salary-calculator/">연봉 실수령액</a><a href="https://jwaytools.com/bmi-calculator/">BMI 계산기</a><a href="https://jwaytools.com/exchange-rate/">환율 계산기</a><a href="https://jwaytools.com/unit-converter/">단위 변환기</a><a href="https://jwaytools.com/timer/">온라인 타이머</a><a href="https://jwaytools.com/qr-generator/">QR코드 생성기</a><a href="https://jwaytools.com/color-converter/">색상 변환기</a><a href="https://jwaytools.com/random-picker/">랜덤 뽑기</a><a href="https://jwaytools.com/loan-calculator/">대출 이자 계산기</a><a href="https://jwaytools.com/age-calculator/">만 나이 계산기</a><a href="https://jwaytools.com/savings-calculator/">예적금 계산기</a><a href="https://jwaytools.com/income-tax-calculator/">소득세 계산기</a><a href="https://jwaytools.com/privacy-policy.html">개인정보처리방침</a></div></div><div class="footer-bottom">© 2025 JWAY. All rights reserved.</div></footer>
+
+<script>
+let type='deposit',interestType='simple',taxType='normal';
+const fmt=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const QUICK={deposit:[[1000000,'100만'],[5000000,'500만'],[10000000,'1천만'],[30000000,'3천만'],[50000000,'5천만']],savings:[[100000,'10만'],[300000,'30만'],[500000,'50만'],[700000,'70만'],[1000000,'100만']]};
+function setP(v){document.getElementById('amount').value=v;calc()}
+function setR(v){document.getElementById('rate').value=v;calc()}
+function setM(v){document.getElementById('months').value=v;calc()}
+function switchType(t){type=t;document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',(t==='deposit'&&i===0)||(t==='savings'&&i===1)));document.getElementById('amtLabel').textContent=t==='deposit'?'예치 금액':'월 납입금';document.getElementById('amount').value=t==='deposit'?10000000:500000;renderQuick();calc()}
+function renderQuick(){const arr=QUICK[type];document.getElementById('amtQuick').innerHTML=arr.map(([v,l])=>`<button class="quick-btn" onclick="setP(${v})">${l}원</button>`).join('')}
+function setInterestType(t){interestType=t;document.getElementById('rSimple').classList.toggle('active',t==='simple');document.getElementById('rCompound').classList.toggle('active',t==='compound');calc()}
+function setTax(t){taxType=t;document.getElementById('tNormal').classList.toggle('active',t==='normal');document.getElementById('tNone').classList.toggle('active',t==='none');calc()}
+function calc(){const amt=parseFloat(document.getElementById('amount').value)||0;const r=parseFloat(document.getElementById('rate').value)/100;const m=parseInt(document.getElementById('months').value)||0;if(amt<=0||r<=0||m<=0)return;let principal,gross;
+if(type==='deposit'){principal=amt;if(interestType==='simple'){gross=amt*r*m/12}else{gross=amt*(Math.pow(1+r/12,m)-1)}}
+else{principal=amt*m;if(interestType==='simple'){// 적금 단리: 매월 납입금에 대해 나머지 월수만큼 이자
+gross=0;for(let i=1;i<=m;i++){gross+=amt*r*(m-i+1)/12}}else{// 적금 복리
+gross=0;for(let i=1;i<=m;i++){gross+=amt*(Math.pow(1+r/12,m-i+1)-1)}}}
+const taxRate=taxType==='normal'?0.154:0;const tax=gross*taxRate;const net=gross-tax;const final=principal+net;
+document.getElementById('finalAmount').textContent=fmt(final);document.getElementById('principal').textContent=fmt(principal);document.getElementById('grossInterest').textContent=fmt(gross);document.getElementById('tax').textContent=fmt(tax);document.getElementById('netInterest').textContent=fmt(net);
+document.getElementById('finalSub').textContent=`${type==='deposit'?'예금':'적금'} 만기 ${taxType==='none'?'':'세후 '}수령액 (${interestType==='simple'?'단리':'월복리'})`}
+function toggleFaq(el){el.parentElement.classList.toggle('open')}
+['amount','rate','months'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+renderQuick();calc();
+</script></body></html>
