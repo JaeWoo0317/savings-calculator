@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>예적금 이자 계산기 — 단리·복리 만기 수령액 계산 | JWAY</title>
-<meta name="description" content="예적금 이자 계산기 무료 온라인 도구. 예금·적금의 단리·복리 만기 수령액과 세후 이자를 정확하게 계산합니다. 15.4% 이자과세 반영.">
+<meta name="description" content="예적금 이자 계산기 무료 온라인 도구. 예금·적금의 단리·월복리 예상 만기 수령액과 세후 이자를 계산합니다. 일반과세 15.4% 반영.">
 <meta name="keywords" content="예금 계산기, 적금 계산기, 이자 계산기, 단리 복리, 만기 수령액, 이자 과세, 세후 이자">
 <meta property="og:title" content="예적금 이자 계산기 — 단리·복리·세후 | JWAY">
 <meta property="og:description" content="예금·적금 만기 수령액과 세후 이자 계산. 단리·복리 선택 지원.">
@@ -45,9 +45,9 @@ input[type="number"]{flex:1;padding:12px 16px;border:1.5px solid var(--border);b
 .nav-toggle{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;padding:6px 10px;font-size:20px;cursor:pointer;color:var(--text-secondary);line-height:1}
 @media(max-width:640px){.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1.5px solid var(--border);padding:12px 20px;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);z-index:99}.nav-links.open{display:flex}.nav{position:relative}}
 .trust-bar{max-width:760px;margin:14px auto 0;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text-secondary);font-size:12px;text-align:center}.trust-bar a{color:var(--accent);font-weight:600}</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"예적금 세후 이자 계산기","url":"https://jwaytools.com/savings-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","isAccessibleForFree":true,"author":{"@type":"Person","name":"JWAY 편집부","url":"https://jwaytools.com/about.html"},"dateModified":"2026-07-01"}</script></head><body>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"예적금 세후 이자 계산기","url":"https://jwaytools.com/savings-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","isAccessibleForFree":true,"author":{"@type":"Person","name":"JWAY 편집부","url":"https://jwaytools.com/about.html"},"dateModified":"2026-08-28"}</script></head><body>
 <nav class="nav"><div class="nav-inner"><a href="https://jwaytools.com/" class="nav-logo">J<span>WAY</span></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="https://jwaytools.com/salary-calculator/">연봉</a><a href="https://jwaytools.com/income-tax-calculator/">소득세</a><a href="https://jwaytools.com/loan-calculator/">대출</a><a href="https://jwaytools.com/savings-calculator/">예적금</a><a href="https://jwaytools.com/blog/">가이드</a><a href="https://jwaytools.com/editorial-policy.html">편집 원칙</a></div></div></nav>
-<header class="header"><h1>예적금 <em>계산기</em></h1><p>예금·적금의 단리·복리 만기 수령액과 세후 이자를 정확하게 계산합니다. 15.4% 이자과세 반영.</p></header><div class="trust-bar">최종 검토 2026-07-01 · 일반과세 15.4%·단리/복리 계산 기준 · <a href="https://jwaytools.com/editorial-policy.html">계산 원칙</a></div>
+<header class="header"><h1>예적금 <em>계산기</em></h1><p>예금·적금의 단리·월복리 예상 만기 수령액과 세후 이자를 계산합니다. 일반과세 15.4% 반영.</p></header><div class="trust-bar">최종 검토 2026-08-28 · 일반과세 15.4%·단리/월복리 계산 기준 · <a href="https://jwaytools.com/editorial-policy.html">계산 원칙</a></div>
 <main class="container">
 <div class="tabs">
 <button class="tab-btn active" onclick="switchType('deposit')">💰 예금</button>
@@ -81,9 +81,9 @@ input[type="number"]{flex:1;padding:12px 16px;border:1.5px solid var(--border);b
 <p>원금에 대해서만 이자가 붙는 방식입니다. 대부분의 정기예금·적금이 단리로 운영됩니다. 예를 들어 1천만원 연 3.5% 단리로 2년 예치하면 이자는 70만원(1,000만원 × 3.5% × 2년)입니다. 단순하고 계산이 쉽습니다.</p>
 
 <h3>복리</h3>
-<p>이자에 다시 이자가 붙는 방식입니다. 같은 조건(1천만원, 3.5%, 2년)에서 월복리로 계산하면 약 72.3만원, 연복리로는 71.2만원의 이자를 받습니다. 장기간일수록 복리 효과가 극대화되어 "돈이 돈을 낳는" 효과를 얻을 수 있습니다. 아인슈타인이 "인류 최고의 발명"이라고 부른 것으로 유명합니다.</p>
+<p>이자에 다시 이자가 붙는 방식입니다. 같은 조건(1천만원, 3.5%, 2년)에서 월복리로 계산하면 세전 이자가 약 72.3만원으로 단리 70만원보다 많습니다. 다만 실제 상품의 복리 주기와 이자 지급 방식은 상품설명서에 적힌 조건을 따라야 합니다.</p>
 
-<div class="guide-tip"><strong>복리의 마법:</strong> 연 5% 수익률로 매년 복리 재투자하면 약 14.4년 후 원금이 2배가 됩니다 (72법칙: 72÷5 = 14.4). 1억원이 10년이면 약 1.63억, 20년이면 약 2.65억, 30년이면 약 4.32억이 됩니다. 시작이 빠를수록 유리합니다.</div>
+<div class="guide-tip"><strong>복리 확인법:</strong> 계산기의 복리는 매월 이자가 원금에 더해진다고 가정합니다. 은행 상품이 단리나 연복리라면 결과가 달라지므로 상품설명서의 이자 계산 방식과 지급 주기를 먼저 확인하세요.</div>
 
 <h2>이자 과세 (15.4%)</h2>
 <p>예적금 이자에는 세금이 부과됩니다. 일반적인 이자소득세는 14% + 지방소득세 1.4% = 총 15.4%입니다. 세전 이자가 100만원이라면 15만 4천원이 세금으로 공제되고 실제 84만 6천원을 받게 됩니다. 이 15.4%는 이자소득 전체에 일괄 적용되며, 연 2천만원 이하 이자소득은 분리과세로 끝납니다.</p>
@@ -95,6 +95,14 @@ input[type="number"]{flex:1;padding:12px 16px;border:1.5px solid var(--border);b
 <h2>계산 기준과 확인 출처</h2>
 <p>이 계산기는 예치 금액 또는 월 납입금, 연 이자율, 기간, 단리·월복리 여부, 일반과세·비과세 여부를 기준으로 만기 수령액을 계산합니다. 일반과세는 이자소득세 14%와 지방소득세 1.4%를 더한 15.4%를 적용합니다.</p>
 <p>실제 상품 금리와 우대 조건은 금융회사마다 다르므로 <a href="https://finlife.fss.or.kr/" target="_blank" rel="noopener">금융감독원 금융상품 한눈에</a>, 은행 상품설명서, <a href="https://www.kdic.or.kr/" target="_blank" rel="noopener">예금보험공사</a>의 예금자보호 안내를 함께 확인하세요. 비과세·세제혜택 상품은 가입 연령, 소득, 납입 한도, 유지 기간 조건이 있으므로 상품별 약관 확인이 필요합니다.</p>
+
+<h2>공개 검증값</h2>
+<p>2026년 8월 28일, 단리와 일반과세 15.4% 조건의 대표값을 수식으로 다시 계산해 화면 결과와 대조했습니다.</p>
+<table class="guide-table"><thead><tr><th>입력 조건</th><th>검증 결과</th></tr></thead><tbody>
+<tr><td>예금 1,000만원 · 연 3.5% · 12개월 · 단리 · 일반과세</td><td>세전 이자 350,000원 · 세금 53,900원 · 세후 이자 296,100원 · 만기 10,296,100원</td></tr>
+<tr><td>적금 월 50만원 · 연 4% · 12개월 · 단리 · 일반과세</td><td>원금 6,000,000원 · 세전 이자 130,000원 · 세금 20,020원 · 만기 6,109,980원</td></tr>
+</tbody></table>
+<div class="guide-tip"><strong>검증 범위:</strong> 매월 초 같은 금액을 납입하고 만기까지 유지한다고 가정합니다. 납입일, 일수 계산, 우대금리, 중도해지 이율, 세금우대 한도와 은행별 원 단위 절사 규칙은 반영하지 않습니다.</div>
 
 <h2>실제 계산 예시 3가지</h2>
 <h3>예시 1: 정기예금 1,000만원, 연 3.5%, 12개월</h3>
@@ -108,7 +116,7 @@ input[type="number"]{flex:1;padding:12px 16px;border:1.5px solid var(--border);b
 <p>은행 상품의 실제 수령액은 우대금리 충족 여부, 중도해지 이율, 자동 재예치 여부, 비과세 한도, 금융소득종합과세 대상 여부에 따라 달라질 수 있습니다. 이 계산기는 만기까지 정상 유지한다는 가정의 참고용 결과이며, 가입 전에는 상품설명서와 약관을 확인하세요.</p>
 
 <h2>이 도구의 주요 기능</h2>
-<p>예금/적금 두 가지 모드를 탭으로 전환할 수 있으며, 원금(또는 월 납입금), 연 이자율, 기간을 입력하면 만기 수령액과 세후 이자를 즉시 계산합니다. 단리와 복리(월복리) 중 선택 가능하고, 일반과세(15.4%)와 비과세를 선택할 수 있어 다양한 시나리오를 시뮬레이션할 수 있습니다. 원금·세전 이자·세금·세후 이자가 각각 상세하게 표시되어 실제 수령액을 정확히 파악할 수 있습니다. 모든 계산은 브라우저에서 이루어지며 개인정보를 수집하지 않습니다.</p>
+<p>예금/적금 두 가지 모드를 탭으로 전환할 수 있으며, 원금(또는 월 납입금), 연 이자율, 기간을 입력하면 예상 만기 수령액과 세후 이자를 계산합니다. 단리와 월복리, 일반과세(15.4%)와 비과세 가정을 선택할 수 있습니다. 원금·세전 이자·세금·세후 이자를 구분해 표시하며 모든 계산은 브라우저에서 이루어집니다.</p>
 <h2>이런 상황에서 활용하세요</h2>
 <div class="scenario-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0 4px">
 <div class="scenario" style="background:var(--surface-alt);border:1px solid var(--border);border-radius:10px;padding:16px"><h3>시나리오 1: 월 50만원 5년 저축</h3><p><strong>상황:</strong> 목표 금액을 만들려면 매달 얼마를 넣어야 하는지 확인이 필요합니다.</p><p><strong>활용법:</strong> 월 납입액, 기간, 금리를 입력합니다.</p><p><strong>결과:</strong> 만기 원금과 세후 이자를 한눈에 볼 수 있습니다.</p></div>
@@ -121,11 +129,11 @@ input[type="number"]{flex:1;padding:12px 16px;border:1.5px solid var(--border);b
 </div></div>
 
 <div class="faq-section"><h2 class="section-title">자주 묻는 질문</h2>
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>예금과 적금 중 어떤 것이 이자가 더 많나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">같은 이자율·기간이라면 예금이 훨씬 많습니다. 예금은 전체 금액이 처음부터 이자를 받지만, 적금은 매월 납입되는 돈만 그 기간만큼 이자를 받기 때문입니다. 적금의 실제 연환산 이자율은 표시 이자율의 약 50~60% 수준입니다. 목돈이 있다면 예금, 매월 저축 습관을 들이려면 적금이 유리합니다.</div></div></div>
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>복리 예적금은 어디서 찾을 수 있나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">일반 시중은행의 정기예금·적금은 대부분 단리로 운영됩니다. 복리 상품은 주로 저축은행, 새마을금고, 신협 등에서 제공되며 "월복리 정기예금" 형태로 판매됩니다. 연금저축, ISA 계좌, 주가연계증권(ELS)도 복리 효과를 얻을 수 있는 방법입니다.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>예금과 적금 중 어떤 것이 이자가 더 많나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">같은 금액을 언제부터 맡기는지에 따라 달라집니다. 목돈 전액을 첫날 예치하는 예금은 전체 원금이 처음부터 이자를 받지만, 적금은 회차별 납입금의 예치기간이 서로 다릅니다. 표시 금리만 비교하지 말고 실제 납입 일정과 세후 만기 수령액을 같은 조건으로 비교하세요.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>월복리 상품인지 어떻게 확인하나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">상품명만으로 판단하지 말고 상품설명서의 이자 계산 방식과 지급 시기를 확인하세요. 단리, 월복리, 연복리는 결과가 다르며 투자상품은 예금과 원금 보장·예금자보호 구조도 다를 수 있습니다.</div></div></div>
 <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>이자소득이 2천만원 넘으면 어떻게 되나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">연간 이자·배당 등 금융소득 합계가 2,000만원을 초과하면 금융소득종합과세 대상이 되어 근로소득·사업소득 등과 합산해 누진세율(6~45%)이 적용됩니다. 고소득자일수록 세율이 높아지므로, 이자 2천만원 근처에서 분산 투자나 비과세 상품 활용이 필요합니다.</div></div></div>
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>중도해지하면 이자가 얼마나 깎이나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">중도해지 시 약정 이자율의 30~50% 수준인 "중도해지 이율"이 적용됩니다. 예를 들어 연 3.5% 1년 정기예금을 6개월 만에 해지하면 약 1.0~1.5%의 이자만 받게 됩니다. 긴급자금이 필요할 수 있는 경우 예금담보대출을 활용하거나 일부 해지(분할 해지) 가능 상품을 선택하세요.</div></div></div>
-<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>예금자보호는 어디까지 되나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">예금보험공사의 예금자 보호 한도는 금융기관별로 1인당 원리금 합산 5천만원입니다. 은행별로 각각 5천만원씩 보호되므로 고액 자산은 여러 은행에 분산하면 보호받을 수 있습니다. 저축은행, 새마을금고도 별도 예금보호 제도가 있으며 동일하게 5천만원 한도입니다.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>중도해지하면 이자가 얼마나 줄어드나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">중도해지 이율과 계산 구간은 상품마다 다릅니다. 이 계산기는 약정 만기 유지 조건만 계산하므로 가입 전 상품설명서에서 가입 기간별 중도해지 이율과 일부 해지 가능 여부를 확인하세요.</div></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>예금자보호는 어디까지 되나요?</span><span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">2025년 9월 1일부터 예금보험공사가 보호하는 예금의 한도는 금융회사별 1인당 원금과 소정의 이자를 합해 1억원입니다. 모든 금융상품이 보호 대상은 아니며 상호금융권은 별도 법률의 보호제도를 적용하므로, 가입 전에 상품설명서와 <a href="https://www.kdic.or.kr/" target="_blank" rel="noopener">예금보험공사</a> 안내를 확인하세요.</div></div></div>
 </div>
 
 <section class="other-tools"><h2 class="section-title">함께 쓰면 좋은 계산기</h2><div class="other-grid">
