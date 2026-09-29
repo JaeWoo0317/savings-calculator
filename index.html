@@ -58,9 +58,9 @@ input,select{max-width:100%}button:focus-visible,summary:focus-visible{outline:3
 @media(max-width:480px){.header h1{font-size:28px}.result-main,.result-hero-value{font-size:26px}.guide-table th,.guide-table td{padding:10px 6px;font-size:13px}}
 .faq-q{width:100%;border:0;background:var(--surface);text-align:left;color:inherit;font-family:inherit;gap:12px}.faq-item,.other-card{border-radius:8px}.breakdown-section-title,.table-header{letter-spacing:0}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"예적금 세후 이자 계산기","url":"https://jwaytools.com/savings-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","isAccessibleForFree":true,"author":{"@type":"Person","name":"JWAY 편집부","url":"https://jwaytools.com/about.html"},"dateModified":"2026-09-18"}</script></head><body>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"예적금 세후 이자 계산기","url":"https://jwaytools.com/savings-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","isAccessibleForFree":true,"author":{"@type":"Person","name":"JWAY 편집부","url":"https://jwaytools.com/about.html"},"dateModified":"2026-09-29"}</script></head><body>
 <nav class="nav"><div class="nav-inner"><a href="https://jwaytools.com/" class="nav-logo">J<span>WAY</span></a><button type="button" aria-label="메뉴 열기" class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="https://jwaytools.com/salary-calculator/">연봉</a><a href="https://jwaytools.com/income-tax-calculator/">소득세</a><a href="https://jwaytools.com/loan-calculator/">대출</a><a href="https://jwaytools.com/savings-calculator/">예적금</a><a href="https://jwaytools.com/blog/">가이드</a><a href="https://jwaytools.com/editorial-policy.html">편집 원칙</a></div></div></nav>
-<header class="header"><h1>예적금 <em>계산기</em></h1><p>예금·적금의 단리·월복리 예상 만기 수령액과 세후 이자를 계산합니다. 일반과세 15.4% 반영.</p></header><div class="trust-bar">최종 검토 2026-09-18 · 일반과세 15.4%·단리/월복리 계산 기준 · <a href="https://jwaytools.com/editorial-policy.html">계산 원칙</a></div>
+<header class="header"><h1>예적금 <em>계산기</em></h1><p>예금·적금의 단리·월복리 예상 만기 수령액과 세후 이자를 계산합니다. 일반과세 15.4% 반영.</p></header><div class="trust-bar">최종 검토 2026-09-29 · 일반과세 15.4%·단리/월복리 계산 기준 · <a href="https://jwaytools.com/editorial-policy.html">계산 원칙</a></div>
 <main class="container"><noscript><p class="input-error">계산하려면 JavaScript가 필요합니다. 아래 계산식과 예시는 JavaScript 없이 읽을 수 있습니다.</p></noscript>
 <p id="inputError" class="input-error" role="status" aria-live="polite"></p>
 <div class="tabs">
@@ -88,11 +88,11 @@ input,select{max-width:100%}button:focus-visible,summary:focus-visible{outline:3
 <div class="guide-section"><div class="guide-card">
 <h2>예금과 적금의 차이</h2>
 <p>예금과 적금은 둘 다 은행에 돈을 맡기는 금융 상품이지만, 운영 방식이 다릅니다. 예금(정기예금)은 목돈을 한꺼번에 예치하고 일정 기간 후 원금과 이자를 받는 방식이며, 적금은 매월 일정 금액을 나눠서 납입하고 만기에 원금과 이자를 받는 방식입니다. 같은 이자율이라도 예금은 전체 원금에 대해 이자가 붙지만, 적금은 납입 차수마다 이자 계산 기간이 달라 실제 수령액 차이가 큽니다.</p>
-<p>예를 들어 1,200만원을 연 3.5% 12개월 예금으로 넣으면 세전 이자는 42만원이지만, 월 100만원씩 12개월 적금으로 넣으면 세전 이자는 약 22만원 수준입니다. 이는 적금은 첫 달 납입금은 12개월, 마지막 달 납입금은 1개월만 이자가 붙기 때문입니다.</p>
+<p>예를 들어 1,200만원을 연 3.5% 12개월 예금으로 넣으면 세전 이자는 42만원이지만, 월 100만원씩 12개월 적금으로 넣으면 월초 납입·단리 가정의 세전 이자는 227,500원입니다. 이는 적금은 첫 달 납입금은 12개월, 마지막 달 납입금은 1개월만 이자가 붙기 때문입니다.</p>
 
 <h2>단리 vs 복리 차이</h2>
 <h3>단리</h3>
-<p>원금에 대해서만 이자가 붙는 방식입니다. 대부분의 정기예금·적금이 단리로 운영됩니다. 예를 들어 1천만원 연 3.5% 단리로 2년 예치하면 이자는 70만원(1,000만원 × 3.5% × 2년)입니다. 단순하고 계산이 쉽습니다.</p>
+<p>원금에 대해서만 이자가 붙는 방식입니다. 예를 들어 1천만원 연 3.5% 단리로 2년 예치하면 이자는 70만원(1,000만원 × 3.5% × 2년)입니다. 단순하고 계산이 쉽습니다.</p>
 
 <h3>복리</h3>
 <p>이자에 다시 이자가 붙는 방식입니다. 같은 조건(1천만원, 3.5%, 2년)에서 월복리로 계산하면 세전 이자가 약 72.3만원으로 단리 70만원보다 많습니다. 다만 실제 상품의 복리 주기와 이자 지급 방식은 상품설명서에 적힌 조건을 따라야 합니다.</p>
@@ -118,19 +118,14 @@ input,select{max-width:100%}button:focus-visible,summary:focus-visible{outline:3
 </tbody></table>
 <div class="guide-tip"><strong>검증 범위:</strong> 매월 초 같은 금액을 납입하고 만기까지 유지한다고 가정합니다. 납입일, 일수 계산, 우대금리, 중도해지 이율, 세금우대 한도와 은행별 원 단위 절사 규칙은 반영하지 않습니다.</div>
 
-<h2>적금 이자 13만원을 재현하는 과정</h2><p>월 50만원, 연 4%, 12개월 적금에서 첫 납입금은 12개월, 마지막 납입금은 1개월 동안 이자를 받는다고 가정합니다. 500,000 × 0.04 ÷ 12 × (12 + 11 + … + 1) = 130,000원입니다. 일반과세 20,020원을 빼면 세후 이자는 109,980원입니다.</p><p>같은 총원금 600만원을 첫날 전부 예치하면 1년 단리 이자는 240,000원입니다. 이 차이는 적금 금리가 낮아서가 아니라 각 돈이 예치된 기간이 다르기 때문입니다. 정기적금 납입일이 늦거나 실제 일수로 계산하면 결과가 달라집니다.</p><p>표시 금액은 세전 이자를 원 단위 반올림한 뒤 세금을 반올림합니다. 따라서 화면에서 원금 + 세후 이자 = 만기액이 성립합니다. 은행의 세목별 절사와는 몇 원 차이가 날 수 있습니다. 금리 0%와 원금 0원도 계산되며, 소수 개월이나 빈 입력에는 결과를 표시하지 않습니다.</p><h2>실제 계산 예시 3가지</h2>
-<h3>예시 1: 정기예금 1,000만원, 연 3.5%, 12개월</h3>
-<p>세전 이자는 약 35만원이고 일반과세 15.4%를 적용하면 세후 이자는 약 29만 6천원입니다. 만기 수령액은 원금 1,000만원과 세후 이자를 더한 금액입니다.</p>
-<h3>예시 2: 정기적금 월 50만원, 연 4%, 12개월</h3>
-<p>총 납입 원금은 600만원이지만 모든 금액이 12개월 동안 예치되는 것은 아닙니다. 첫 달 납입금은 12개월, 마지막 달 납입금은 1개월만 이자가 붙기 때문에 표시 금리보다 실제 이자 체감액이 낮습니다.</p>
-<h3>예시 3: 월복리 예금</h3>
-<p>월복리는 매월 발생한 이자를 다시 원금에 더해 다음 달 이자를 계산합니다. 단기 상품에서는 차이가 작지만, 기간이 길고 금리가 높을수록 단리와 복리의 차이가 커집니다.</p>
-
+<h2>납입 시점과 반올림 기준</h2>
+<p>월초 납입 적금의 단리 이자는 월 납입액 × 연이율 ÷ 12 × n(n+1) ÷ 2입니다. 여기서 n은 납입 개월 수입니다. 월복리는 각 납입금에 대해 납입액 × ((1 + 연이율 ÷ 12)의 남은 개월 수 제곱 − 1)을 구해 합산합니다. 월말 납입이나 중간 이자 지급·원천징수는 이 모형과 다릅니다.</p>
+<p>세전 이자를 원 단위로 반올림하고, 이 금액에서 계산한 세금도 반올림한 뒤 차감합니다. 원금 + 세후 이자 = 만기액이 되지만 은행의 세목별 절사와 실제 일수 계산 때문에 차이가 생길 수 있습니다. 금리 0%와 원금 0원도 계산하며, 소수 개월이나 빈 입력에는 결과를 표시하지 않습니다.</p>
+<p>월 50만원의 회차별 이자 합산과 우대금리 0.2%포인트의 실익은 <a href="https://jwaytools.com/blog/savings-after-tax-interest/">예금·적금 세후 이자 사례</a>에 정리했습니다.</p>
 <h2>사용 전 주의사항</h2>
 <p>은행 상품의 실제 수령액은 우대금리 충족 여부, 중도해지 이율, 자동 재예치 여부, 비과세 한도, 금융소득종합과세 대상 여부에 따라 달라질 수 있습니다. 이 계산기는 만기까지 정상 유지한다는 가정의 참고용 결과이며, 가입 전에는 상품설명서와 약관을 확인하세요.</p>
 
-<h2>이 도구의 주요 기능</h2>
-<p>예금/적금 두 가지 모드를 탭으로 전환할 수 있으며, 원금(또는 월 납입금), 연 이자율, 기간을 입력하면 예상 만기 수령액과 세후 이자를 계산합니다. 단리와 월복리, 일반과세(15.4%)와 비과세 가정을 선택할 수 있습니다. 원금·세전 이자·세금·세후 이자를 구분해 표시하며 모든 계산은 브라우저에서 이루어집니다.</p>
+<h2>투자 수익률을 입력해도 될까요?</h2><p>이 계산기는 약정 이율이 유지되는 저축 모형이지 펀드나 ETF의 수익 예측기가 아닙니다. 매달 가격이 바뀌는 투자는 납입 시점별 매입 가격과 비용이 필요합니다. <a href="https://jwaytools.com/blog/savings-vs-fund/">저축과 투자 비교 사례</a>에서는 가상의 만기 평가액을 기준으로 목표금액 부족분을 따로 계산합니다.</p>
 </div></div>
 
 <div class="faq-section"><h2 class="section-title">자주 묻는 질문</h2>
